@@ -83,37 +83,73 @@ export const todaySchedule = [
   },
 ];
 
-// Deadlines
+// Deadlines - Only upcoming deadlines (future dates)
 export const deadlines = [
+  // Urgent deadlines (within 24 hours)
   {
     id: "d1",
-    title: "Bài tập Lập trình Web - Lab 05",
+    title: "Bài tập Lập trình Web - Lab 06",
     course: "IT008",
-    dueDate: "2024-01-15T23:59:00",
+    dueDate: new Date(Date.now() + 12 * 60 * 60 * 1000).toISOString(), // 12 hours from now
     status: "pending",
     priority: "high",
   },
   {
     id: "d2",
-    title: "Đồ án CSDL - Milestone 2",
+    title: "Nộp báo cáo AI - Tuần 5",
+    course: "IT012",
+    dueDate: new Date(Date.now() + 20 * 60 * 60 * 1000).toISOString(), // 20 hours from now
+    status: "pending",
+    priority: "high",
+  },
+  // Deadlines within 3 days
+  {
+    id: "d3",
+    title: "Đồ án CSDL - Milestone 3",
     course: "IT005",
-    dueDate: "2024-01-18T17:00:00",
+    dueDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days from now
     status: "pending",
     priority: "high",
   },
   {
-    id: "d3",
-    title: "Báo cáo AI - Tuần 4",
-    course: "IT012",
-    dueDate: "2024-01-20T23:59:00",
+    id: "d4",
+    title: "Bài tập Mạng máy tính - Lab 04",
+    course: "IT006",
+    dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(), // 3 days from now
+    status: "pending",
+    priority: "medium",
+  },
+  // Deadlines within a week
+  {
+    id: "d5",
+    title: "Quiz Online - Chương 4",
+    course: "IT008",
+    dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 days from now
     status: "pending",
     priority: "medium",
   },
   {
-    id: "d4",
-    title: "Quiz Online - Chương 3",
-    course: "IT008",
-    dueDate: "2024-01-22T10:00:00",
+    id: "d6",
+    title: "Báo cáo thực hành CSDL",
+    course: "IT005",
+    dueDate: new Date(Date.now() + 6 * 24 * 60 * 60 * 1000).toISOString(), // 6 days from now
+    status: "pending",
+    priority: "medium",
+  },
+  // Deadlines within 2 weeks
+  {
+    id: "d7",
+    title: "Đồ án AI - Presentation",
+    course: "IT012",
+    dueDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString(), // 10 days from now
+    status: "pending",
+    priority: "low",
+  },
+  {
+    id: "d8",
+    title: "Bài tập lớn Mạng máy tính",
+    course: "IT006",
+    dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(), // 14 days from now
     status: "pending",
     priority: "low",
   },
@@ -213,36 +249,66 @@ export const weeklyTimetable = [
     day: "Thứ 2",
     date: "15/01",
     classes: [
-      { subject: "Lập trình Web", code: "IT008", time: "07:30 - 09:30", room: "B3.10" },
+      {
+        subject: "Lập trình Web",
+        code: "IT008",
+        time: "07:30 - 09:30",
+        room: "B3.10",
+      },
     ],
   },
   {
     day: "Thứ 3",
     date: "16/01",
     classes: [
-      { subject: "Cơ sở dữ liệu", code: "IT005", time: "09:45 - 11:45", room: "A1.05" },
+      {
+        subject: "Cơ sở dữ liệu",
+        code: "IT005",
+        time: "09:45 - 11:45",
+        room: "A1.05",
+      },
     ],
   },
   {
     day: "Thứ 4",
     date: "17/01",
     classes: [
-      { subject: "Trí tuệ nhân tạo", code: "IT012", time: "13:30 - 15:30", room: "C2.08" },
+      {
+        subject: "Trí tuệ nhân tạo",
+        code: "IT012",
+        time: "13:30 - 15:30",
+        room: "C2.08",
+      },
     ],
   },
   {
     day: "Thứ 5",
     date: "18/01",
     classes: [
-      { subject: "Mạng máy tính", code: "IT006", time: "09:45 - 11:45", room: "D1.02" },
-      { subject: "Lập trình Web", code: "IT008", time: "13:30 - 15:30", room: "B3.10" },
+      {
+        subject: "Mạng máy tính",
+        code: "IT006",
+        time: "09:45 - 11:45",
+        room: "D1.02",
+      },
+      {
+        subject: "Lập trình Web",
+        code: "IT008",
+        time: "13:30 - 15:30",
+        room: "B3.10",
+      },
     ],
   },
   {
     day: "Thứ 6",
     date: "19/01",
     classes: [
-      { subject: "Cơ sở dữ liệu", code: "IT005", time: "07:30 - 09:30", room: "A1.05" },
+      {
+        subject: "Cơ sở dữ liệu",
+        code: "IT005",
+        time: "07:30 - 09:30",
+        room: "A1.05",
+      },
     ],
   },
   {
@@ -331,7 +397,8 @@ export const threadPosts = [
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hung",
       badge: "top-collaborator",
     },
-    content: "Mọi người ơi, ai có slide bài 5 về React Hooks không ạ? Mình đi học muộn bị miss mất phần đó 😅",
+    content:
+      "Mọi người ơi, ai có slide bài 5 về React Hooks không ạ? Mình đi học muộn bị miss mất phần đó 😅",
     timestamp: "5 phút trước",
     likes: 3,
     replies: 2,
@@ -345,7 +412,8 @@ export const threadPosts = [
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mai",
       badge: "helper",
     },
-    content: "Mình có nè, để mình up lên Google Drive rồi share link cho bạn nhé!",
+    content:
+      "Mình có nè, để mình up lên Google Drive rồi share link cho bạn nhé!",
     timestamp: "3 phút trước",
     likes: 5,
     replies: 0,
@@ -360,7 +428,8 @@ export const threadPosts = [
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Anh",
       badge: null,
     },
-    content: "Bài lab tuần này có khó không mọi người? Mình thấy phần useEffect hơi confuse 🤔",
+    content:
+      "Bài lab tuần này có khó không mọi người? Mình thấy phần useEffect hơi confuse 🤔",
     timestamp: "1 giờ trước",
     likes: 8,
     replies: 5,
@@ -374,7 +443,8 @@ export const threadPosts = [
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tuan",
       badge: "deadline-master",
     },
-    content: "📌 Tips học TOEIC hiệu quả cho IT-er:\n\n1. Học từ vựng theo chủ đề (tech, business)\n2. Nghe podcast tiếng Anh về công nghệ\n3. Đọc documentation bằng tiếng Anh\n4. Practice với app Elsa Speak\n\nMình từ 550 lên 850 trong 6 tháng với cách này! 💪",
+    content:
+      "📌 Tips học TOEIC hiệu quả cho IT-er:\n\n1. Học từ vựng theo chủ đề (tech, business)\n2. Nghe podcast tiếng Anh về công nghệ\n3. Đọc documentation bằng tiếng Anh\n4. Practice với app Elsa Speak\n\nMình từ 550 lên 850 trong 6 tháng với cách này! 💪",
     timestamp: "30 phút trước",
     likes: 45,
     replies: 12,
@@ -388,7 +458,8 @@ export const threadPosts = [
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nam",
       badge: null,
     },
-    content: "🔥 CẦN BÁN: Laptop Dell XPS 15 9520\n\n- CPU: i7-12700H\n- RAM: 16GB\n- SSD: 512GB\n- Màn hình 3.5K OLED\n- Còn bảo hành đến T6/2024\n- Giá: 28 triệu (còn thương lượng)\n\nLiên hệ: 0912xxx456",
+    content:
+      "🔥 CẦN BÁN: Laptop Dell XPS 15 9520\n\n- CPU: i7-12700H\n- RAM: 16GB\n- SSD: 512GB\n- Màn hình 3.5K OLED\n- Còn bảo hành đến T6/2024\n- Giá: 28 triệu (còn thương lượng)\n\nLiên hệ: 0912xxx456",
     timestamp: "2 giờ trước",
     likes: 12,
     replies: 8,
@@ -403,10 +474,26 @@ export const projectGroups = [
     name: "Nhóm đồ án Web - Team Alpha",
     courseCode: "IT008",
     members: [
-      { name: "Nguyễn Văn Minh", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Minh", role: "leader" },
-      { name: "Trần Thị Hoa", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hoa", role: "member" },
-      { name: "Lê Văn Tùng", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tung", role: "member" },
-      { name: "Phạm Mai Anh", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=MaiAnh", role: "member" },
+      {
+        name: "Nguyễn Văn Minh",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Minh",
+        role: "leader",
+      },
+      {
+        name: "Trần Thị Hoa",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hoa",
+        role: "member",
+      },
+      {
+        name: "Lê Văn Tùng",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tung",
+        role: "member",
+      },
+      {
+        name: "Phạm Mai Anh",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=MaiAnh",
+        role: "member",
+      },
     ],
     lastMessage: "Mình đã push code lên branch feature/login rồi nhé",
     lastMessageTime: "15 phút trước",
@@ -417,9 +504,21 @@ export const projectGroups = [
     name: "Nhóm CSDL - Database Warriors",
     courseCode: "IT005",
     members: [
-      { name: "Nguyễn Văn Minh", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Minh", role: "member" },
-      { name: "Đỗ Quang Huy", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Huy", role: "leader" },
-      { name: "Võ Thị Lan", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lan", role: "member" },
+      {
+        name: "Nguyễn Văn Minh",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Minh",
+        role: "member",
+      },
+      {
+        name: "Đỗ Quang Huy",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Huy",
+        role: "leader",
+      },
+      {
+        name: "Võ Thị Lan",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lan",
+        role: "member",
+      },
     ],
     lastMessage: "Deadline milestone 2 là thứ 6 này nhé mọi người",
     lastMessageTime: "1 giờ trước",
@@ -469,20 +568,121 @@ export const grades = [
   {
     semester: "HK1 2023-2024",
     courses: [
-      { code: "IT001", name: "Nhập môn lập trình", credits: 4, midterm: 8.5, final: 9.0, total: 8.8, letterGrade: "A" },
-      { code: "IT002", name: "Lập trình hướng đối tượng", credits: 4, midterm: 7.5, final: 8.0, total: 7.8, letterGrade: "B+" },
-      { code: "IT003", name: "Cấu trúc dữ liệu", credits: 4, midterm: 8.0, final: 8.5, total: 8.3, letterGrade: "A" },
-      { code: "MA001", name: "Giải tích", credits: 3, midterm: 7.0, final: 7.5, total: 7.3, letterGrade: "B" },
+      {
+        code: "IT001",
+        name: "Nhập môn lập trình",
+        credits: 4,
+        midterm: 8.5,
+        final: 9.0,
+        total: 8.8,
+        letterGrade: "A",
+      },
+      {
+        code: "IT002",
+        name: "Lập trình hướng đối tượng",
+        credits: 4,
+        midterm: 7.5,
+        final: 8.0,
+        total: 7.8,
+        letterGrade: "B+",
+      },
+      {
+        code: "IT003",
+        name: "Cấu trúc dữ liệu",
+        credits: 4,
+        midterm: 8.0,
+        final: 8.5,
+        total: 8.3,
+        letterGrade: "A",
+      },
+      {
+        code: "MA001",
+        name: "Giải tích",
+        credits: 3,
+        midterm: 7.0,
+        final: 7.5,
+        total: 7.3,
+        letterGrade: "B",
+      },
+      // Current semester courses - Some with full grades, some with only midterm
+      {
+        code: "IT008",
+        name: "Lập trình Web",
+        credits: 4,
+        midterm: 8.0,
+        final: null,
+        total: null,
+        letterGrade: null,
+      },
+      {
+        code: "IT005",
+        name: "Cơ sở dữ liệu",
+        credits: 4,
+        midterm: 8.5,
+        final: 8.8,
+        total: 8.7,
+        letterGrade: "A",
+      },
+      {
+        code: "IT012",
+        name: "Trí tuệ nhân tạo",
+        credits: 3,
+        midterm: 7.5,
+        final: null,
+        total: null,
+        letterGrade: null,
+      },
+      {
+        code: "IT006",
+        name: "Mạng máy tính",
+        credits: 3,
+        midterm: 7.8,
+        final: 8.2,
+        total: 8.0,
+        letterGrade: "B+",
+      },
     ],
     gpa: 3.52,
   },
   {
     semester: "HK2 2022-2023",
     courses: [
-      { code: "IT004", name: "Kiến trúc máy tính", credits: 3, midterm: 8.0, final: 8.5, total: 8.3, letterGrade: "A" },
-      { code: "IT005", name: "Hệ điều hành", credits: 4, midterm: 7.5, final: 8.0, total: 7.8, letterGrade: "B+" },
-      { code: "MA002", name: "Đại số tuyến tính", credits: 3, midterm: 8.5, final: 9.0, total: 8.8, letterGrade: "A" },
-      { code: "EN001", name: "Tiếng Anh 1", credits: 3, midterm: 7.0, final: 7.5, total: 7.3, letterGrade: "B" },
+      {
+        code: "IT004",
+        name: "Kiến trúc máy tính",
+        credits: 3,
+        midterm: 8.0,
+        final: 8.5,
+        total: 8.3,
+        letterGrade: "A",
+      },
+      {
+        code: "IT005",
+        name: "Hệ điều hành",
+        credits: 4,
+        midterm: 7.5,
+        final: 8.0,
+        total: 7.8,
+        letterGrade: "B+",
+      },
+      {
+        code: "MA002",
+        name: "Đại số tuyến tính",
+        credits: 3,
+        midterm: 8.5,
+        final: 9.0,
+        total: 8.8,
+        letterGrade: "A",
+      },
+      {
+        code: "EN001",
+        name: "Tiếng Anh 1",
+        credits: 3,
+        midterm: 7.0,
+        final: 7.5,
+        total: 7.3,
+        letterGrade: "B",
+      },
     ],
     gpa: 3.38,
   },
